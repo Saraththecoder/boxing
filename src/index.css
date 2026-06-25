@@ -59,21 +59,7 @@ body {
   position: relative;
 }
 
-/* Arena Grid Mesh Overlay */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.005) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.005) 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
-  z-index: 1;
-}
+/* Arena Grid Mesh Overlay - Optimized to empty for scroll performance */
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-headings);
@@ -437,13 +423,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Glass Cards - Reflective Overlay & Depth */
 .card {
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #0f1524;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 24px;
-  box-shadow: var(--shadow-md), inset 0 1px 1px rgba(255,255,255,0.03);
+  box-shadow: var(--shadow-md), inset 0 1px 1px rgba(255,255,255,0.02);
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
@@ -575,8 +559,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes pulseLight {
-  from { opacity: 0.3; filter: blur(1px); }
-  to { opacity: 1; filter: blur(0px); }
+  from { opacity: 0.3; }
+  to { opacity: 1; }
 }
 
 /* Charts Layout */
@@ -785,8 +769,8 @@ h1, h2, h3, h4, h5, h6 {
 .badge-overdue { background: rgba(255, 0, 60, 0.08); color: var(--accent-red); border: 1px solid rgba(255, 0, 60, 0.25); animation: pulseOverdue 1.5s infinite alternate; }
 
 @keyframes pulseOverdue {
-  from { box-shadow: 0 0 4px rgba(255, 0, 60, 0.1); }
-  to { box-shadow: 0 0 10px rgba(255, 0, 60, 0.4); }
+  from { opacity: 0.6; }
+  to { opacity: 1; }
 }
 
 /* Filters bar styling */
@@ -850,8 +834,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(5, 7, 10, 0.9);
-  backdrop-filter: blur(10px);
+  background-color: rgba(5, 7, 10, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1468,8 +1451,7 @@ h1, h2, h3, h4, h5, h6 {
 .auth-glass-panel {
   width: 100%;
   max-width: 380px;
-  background: rgba(12, 15, 23, 0.65);
-  backdrop-filter: blur(20px);
+  background: #0d1017;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-lg);
   padding: 40px 32px;
@@ -1544,9 +1526,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(5, 7, 10, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(5, 7, 10, 0.75);
   z-index: 95;
 }
 

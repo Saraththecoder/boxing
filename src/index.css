@@ -1101,6 +1101,146 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 10px rgba(0, 245, 212, 0.15);
 }
 
+/* Fighter Profile Card Details */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.profile-avatar-large {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--accent-red);
+  box-shadow: var(--shadow-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-red);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.profile-badge-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.profile-details-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  margin-top: 16px;
+}
+
+.profile-detail-item label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.profile-detail-item p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Reminder System Card Layouts */
+.reminder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.reminder-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.reminder-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.reminder-header-row h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-style: normal;
+  text-transform: none;
+}
+
+.reminder-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.reminder-meta-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  padding-bottom: 4px;
+}
+
+.reminder-meta-item span:first-child {
+  color: var(--text-secondary);
+}
+
+.reminder-meta-item span:last-child {
+  font-weight: 700;
+  color: #fff;
+}
+
+.reminder-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.reminder-actions button {
+  flex-grow: 1;
+}
+
+/* Form Grid Mobile Collapse */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+  .profile-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    justify-items: center;
+  }
+  .profile-avatar-large {
+    margin-bottom: 12px;
+  }
+  .profile-details-list {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .sidebar {

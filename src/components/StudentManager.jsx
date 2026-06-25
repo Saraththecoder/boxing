@@ -210,7 +210,7 @@ export default function StudentManager({ students, onSaveStudent, onDeleteStuden
 
         {/* Student Table */}
         <div className="table-container">
-          <table className="data-table">
+          <table className="data-table students-table">
             <thead>
               <tr>
                 <th>ID</th>

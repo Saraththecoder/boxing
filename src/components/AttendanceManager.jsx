@@ -207,7 +207,7 @@ export default function AttendanceManager({
       {activeTab === 'daily' && (
         <div>
           {/* Quick Metrics Grid */}
-          <div className="kpi-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', marginBottom: '24px' }}>
+          <div className="kpi-grid-4" style={{ marginBottom: '24px' }}>
             <div className="card kpi-card" style={{ padding: '16px' }}>
               <div className="kpi-details">
                 <h3 style={{ fontSize: '0.75rem' }}>Rostered Boxers</h3>
@@ -256,7 +256,7 @@ export default function AttendanceManager({
             </div>
 
             <div className="table-container">
-              <table className="data-table">
+              <table className="data-table student-attendance-table">
                 <thead>
                   <tr>
                     <th>Fighter Name</th>
@@ -334,7 +334,7 @@ export default function AttendanceManager({
           </div>
 
           <div className="table-container">
-            <table className="data-table">
+            <table className="data-table trainer-attendance-table">
               <thead>
                 <tr>
                   <th>Trainer Name</th>
@@ -413,7 +413,7 @@ export default function AttendanceManager({
           </div>
 
           <div className="table-container">
-            <table className="data-table">
+            <table className="data-table monthly-ratios-table">
               <thead>
                 <tr>
                   <th>Fighter Name</th>

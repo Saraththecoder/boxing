@@ -265,7 +265,7 @@ export default function ReportsManager({
 
               {/* Table details */}
               <div className="table-container">
-                <table className="data-table">
+                <table className="data-table demographics-report-table">
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -324,7 +324,7 @@ export default function ReportsManager({
               </div>
 
               <div className="table-container">
-                <table className="data-table">
+                <table className="data-table attendance-report-table">
                   <thead>
                     <tr>
                       <th>Fighter Name</th>
@@ -391,7 +391,7 @@ export default function ReportsManager({
 
               <h3 style={{ fontSize: '1rem', marginBottom: '12px' }}>Outstanding June Debt List</h3>
               <div className="table-container">
-                <table className="data-table">
+                <table className="data-table financial-report-table">
                   <thead>
                     <tr>
                       <th>Fighter Name</th>

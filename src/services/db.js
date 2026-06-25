@@ -19,34 +19,52 @@ const DB_KEYS = {
   ACTIVITIES: 'apex_boxing_activities'
 };
 
+let isDbInitialized = false;
+
 // Initialize database if empty
 export const initDatabase = () => {
-  if (!localStorage.getItem(DB_KEYS.STUDENTS)) {
-    localStorage.setItem(DB_KEYS.STUDENTS, JSON.stringify(initialStudents));
+  if (isDbInitialized) return;
+  
+  let hasMissing = false;
+  const keys = Object.values(DB_KEYS);
+  for (let i = 0; i < keys.length; i++) {
+    if (!localStorage.getItem(keys[i])) {
+      hasMissing = true;
+      break;
+    }
   }
-  if (!localStorage.getItem(DB_KEYS.TRAINERS)) {
-    localStorage.setItem(DB_KEYS.TRAINERS, JSON.stringify(initialTrainers));
+
+  if (hasMissing) {
+    if (!localStorage.getItem(DB_KEYS.STUDENTS)) {
+      localStorage.setItem(DB_KEYS.STUDENTS, JSON.stringify(initialStudents));
+    }
+    if (!localStorage.getItem(DB_KEYS.TRAINERS)) {
+      localStorage.setItem(DB_KEYS.TRAINERS, JSON.stringify(initialTrainers));
+    }
+    if (!localStorage.getItem(DB_KEYS.TRAINER_ATTENDANCE)) {
+      localStorage.setItem(DB_KEYS.TRAINER_ATTENDANCE, JSON.stringify(initialTrainerAttendance));
+    }
+    if (!localStorage.getItem(DB_KEYS.ATTENDANCE)) {
+      localStorage.setItem(DB_KEYS.ATTENDANCE, JSON.stringify(initialAttendance));
+    }
+    if (!localStorage.getItem(DB_KEYS.PAYMENTS)) {
+      localStorage.setItem(DB_KEYS.PAYMENTS, JSON.stringify(initialPayments));
+    }
+    if (!localStorage.getItem(DB_KEYS.ANNOUNCEMENTS)) {
+      localStorage.setItem(DB_KEYS.ANNOUNCEMENTS, JSON.stringify(initialAnnouncements));
+    }
+    if (!localStorage.getItem(DB_KEYS.ACTIVITIES)) {
+      localStorage.setItem(DB_KEYS.ACTIVITIES, JSON.stringify(initialActivities));
+    }
   }
-  if (!localStorage.getItem(DB_KEYS.TRAINER_ATTENDANCE)) {
-    localStorage.setItem(DB_KEYS.TRAINER_ATTENDANCE, JSON.stringify(initialTrainerAttendance));
-  }
-  if (!localStorage.getItem(DB_KEYS.ATTENDANCE)) {
-    localStorage.setItem(DB_KEYS.ATTENDANCE, JSON.stringify(initialAttendance));
-  }
-  if (!localStorage.getItem(DB_KEYS.PAYMENTS)) {
-    localStorage.setItem(DB_KEYS.PAYMENTS, JSON.stringify(initialPayments));
-  }
-  if (!localStorage.getItem(DB_KEYS.ANNOUNCEMENTS)) {
-    localStorage.setItem(DB_KEYS.ANNOUNCEMENTS, JSON.stringify(initialAnnouncements));
-  }
-  if (!localStorage.getItem(DB_KEYS.ACTIVITIES)) {
-    localStorage.setItem(DB_KEYS.ACTIVITIES, JSON.stringify(initialActivities));
-  }
+  isDbInitialized = true;
 };
 
 // Helper: Get data
 const getData = (key) => {
-  initDatabase();
+  if (!isDbInitialized) {
+    initDatabase();
+  }
   return JSON.parse(localStorage.getItem(key)) || [];
 };
 
@@ -249,6 +267,7 @@ export const db = {
     localStorage.removeItem(DB_KEYS.PAYMENTS);
     localStorage.removeItem(DB_KEYS.ANNOUNCEMENTS);
     localStorage.removeItem(DB_KEYS.ACTIVITIES);
+    isDbInitialized = false;
     initDatabase();
   }
 };

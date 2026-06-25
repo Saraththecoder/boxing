@@ -267,6 +267,14 @@ export default function App() {
         </div>
       </aside>
 
+      {/* Sidebar Backdrop Overlay on Mobile */}
+      {mobileMenuOpen && (
+        <div 
+          className="sidebar-backdrop" 
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Main Content Pane */}
       <main className="main-content">
         {activeTab === 'dashboard' && (

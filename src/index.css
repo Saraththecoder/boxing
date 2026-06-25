@@ -1537,3 +1537,89 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Sidebar Backdrop Overlay on Mobile */
+.sidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(5, 7, 10, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 95;
+}
+
+/* Page Titles and headers responsiveness */
+@media (max-width: 768px) {
+  .page-title h1 {
+    font-size: 1.5rem !important;
+  }
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Table column hides to fit narrow phone viewports */
+  
+  /* 1. Student Manager Roster Table: Hide Batch Allocation, Membership Tier, and Weight */
+  .data-table th:nth-child(3), .data-table td:nth-child(3),
+  .data-table th:nth-child(4), .data-table td:nth-child(4),
+  .data-table th:nth-child(5), .data-table td:nth-child(5) {
+    display: none !important;
+  }
+
+  /* 2. Attendance Logger Table: Hide Weight Class column */
+  .data-table th:nth-child(3), .data-table td:nth-child(3) {
+    display: none !important;
+  }
+
+  /* 3. Trainer Attendance Table: Hide Role and System Status columns */
+  .data-table th:nth-child(2), .data-table td:nth-child(2),
+  .data-table th:nth-child(3), .data-table td:nth-child(3) {
+    display: none !important;
+  }
+
+  /* 4. Billing history Transactions Table: Hide Cycle, Method, Date */
+  .data-table th:nth-child(3), .data-table td:nth-child(3),
+  .data-table th:nth-child(5), .data-table td:nth-child(5),
+  .data-table th:nth-child(6), .data-table td:nth-child(6) {
+    display: none !important;
+  }
+
+  /* 5. Attendance Ratios Report: Hide Batch, Absent, and Total classes */
+  .data-table th:nth-child(2), .data-table td:nth-child(2),
+  .data-table th:nth-child(4), .data-table td:nth-child(4),
+  .data-table th:nth-child(5), .data-table td:nth-child(5) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .header-actions button {
+    width: 100%;
+  }
+  .card {
+    padding: 16px !important;
+  }
+  .kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 350px) {
+  .phone-frame {
+    transform: scale(0.85);
+    transform-origin: top center;
+    margin-bottom: -70px;
+  }
+}
+
